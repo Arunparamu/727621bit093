@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prime Number Checker</title>
+  </head>
+  <style>
+    body{
+    background-color:rgb(77, 158, 230);
+}
+.dem1{
+    font-size: 25px;
+    margin: 100px;
+    padding: 100px;
+    color: white;
+    background-color: rgb(85, 31, 212);
+    position: fixed;
+}
+  </style>
+  <body>
+    <h2 style="text-align: center">Prime Number Checker</h2>
+    <form action="/calculate" method="GET">
+      <div class="dem1">
+        <label>Enter number 1:</label>
+        <br />
+        <input type="number" id="num1" name="num1" />
+        <br />
+        <br />
+        <label>Enter number 2:</label>
+        <br />
+        <input type="number" id="num2" name="num2" />
+        <br />
+        <br />
+        <button type="submit">Calculate</button>
+        <br />
+        <br />
+      </div>
+    </form>
+    <p id="result"></p>
+  </body>
+</html>

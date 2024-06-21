@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Number Finder</title>
+    <link rel="stylesheet" href="fibonacci.css">
+</head>
+<body>
+    <form onsubmit="return calculateFibonacci()">
+        <h2 style="text-align: center;">Fibonacci Number Finder</h2>
+        <div class="dem1">
+           <label>Enter number 1:</label> 
+           <br>
+           <input type="number" id="num1">
+           <br>
+           <br>
+           <label>Enter number 2:</label>
+           <br>
+           <input type="number" id="num2">
+           <br>
+           <br>
+           <button type="submit">Calculate</button>
+           <br>
+           <br>
+           <p id="result"></p>
+        </div>
+    </form>
+   
+
+    <script>
+        function calculateFibonacci() {
+            var a = document.getElementById("num1").value;
+            var b = document.getElementById("num2").value;
+            var start = parseInt(a);
+            var end = parseInt(b);
+
+            if (isNaN(start) || isNaN(end) || start > end) {
+                document.getElementById("result").textContent = 'Please enter valid number.';
+                return false;
+            }
+
+            var fib = [];
+            var a = 0, b = 1;
+
+            while (a <= end) {
+                if (a >= start) {
+                    fib.push(a);
+                }
+                var next = a + b;
+                a = b;
+                b = next;
+            }
+
+            var resultElement = document.getElementById("result");
+            if (fib.length > 0) {
+                resultElement.textContent = "Fibonacci numbers between " + start + " and " + end + ": " + fib.join(", ");
+            } else {
+                resultElement.textContent = "No Fibonacci numbers found between " + start + " and " + end + ".";
+            }
+
+            return false; 
+        }
+    </script>
+</body>
+</html>

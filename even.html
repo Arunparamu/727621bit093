@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even Number Finder</title>
+    <link rel="stylesheet" href="even.css">
+</head>
+<body>
+    <form onsubmit="return calculateEvenNumbers()">
+        <h2 style="text-align: center;">Even Number Finder</h2>
+        <div class="dem1">
+           <label>Enter number 1:</label> 
+           <br>
+           <input type="number" id="num1">
+           <br>
+           <br>
+           <label>Enter number 2:</label>
+           <br>
+           <input type="number" id="num2">
+           <br>
+           <br>
+           <button type="submit">Calculate</button>
+           <br>
+           <br>
+           <p id="result"></p>
+        </div>
+    </form>
+   
+
+    <script>
+        function calculateEvenNumbers() {
+            var a = document.getElementById("num1").value;
+            var b = document.getElementById("num2").value;
+            var start = parseInt(a);
+            var end = parseInt(b);
+
+            if (isNaN(start) || isNaN(end) || start > end) {
+                document.getElementById("result").textContent = 'Please enter valid number';
+                return false;
+            }
+
+            var evens = [];
+
+            for (var i = start; i <= end; i++) {
+                if (i % 2 === 0) {
+                    evens.push(i);
+                }
+            }
+
+            var resultElement = document.getElementById("result");
+            if (evens.length > 0) {
+                resultElement.textContent = "Even numbers between " + start + " and " + end + ": " + evens.join(", ");
+            } else {
+                resultElement.textContent = "No even numbers found between " + start + " and " + end + ".";
+            }
+
+            return false; 
+        }
+    </script>
+</body>
+</html>

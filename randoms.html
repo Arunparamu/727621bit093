@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Generator</title>
+    <link rel="stylesheet" href="randoms.css">
+</head>
+<body>
+    <form onsubmit="return generateRandomNumbers()">
+        <h2 style="text-align: center;">Random Number Generator</h2>
+        <div class="dem1">
+            <label>Enter start number:</label> 
+            <br>
+            <input type="number" id="num1">
+            <br><br>
+            <label>Enter end number:</label>
+            <br>
+            <input type="number" id="num2">
+            <br><br>
+            <label>Enter count of random numbers:</label>
+            <br>
+            <input type="number" id="count">
+            <br><br>
+            <button type="submit">Generate</button>
+            <br><br>
+            <p id="result"></p>
+        </div>
+    </form>
+
+    <script>
+        function generateRandomNumbers() {
+            var a = document.getElementById("num1").value;
+            var b = document.getElementById("num2").value;
+            var count = document.getElementById("count").value;
+            var start = parseInt(a);
+            var end = parseInt(b);
+            var numCount = parseInt(count);
+
+            if (isNaN(start) || isNaN(end) || isNaN(numCount) || start > end || numCount <= 0) {
+                document.getElementById("result").textContent = 'Please enter valid numbert.';
+                return false;
+            }
+
+            var randomNumbers = [];
+            for (var i = 0; i < numCount; i++) {
+                var randomNum = Math.floor(Math.random() * (end - start + 1)) + start;
+                randomNumbers.push(randomNum);
+            }
+
+            var resultElement = document.getElementById("result");
+            resultElement.textContent = "Random numbers between " + start + " and " + end + ": " + randomNumbers.join(", ");
+
+            return false;
+        }
+    </script>
+</body>
+</html>

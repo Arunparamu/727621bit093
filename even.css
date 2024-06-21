@@ -1,0 +1,11 @@
+body{
+    background-color:rgb(77, 158, 230);
+}
+.dem1{
+    font-size: 25px;
+    margin: 100px;
+    padding: 100px;
+    color: white;
+    background-color: rgb(85, 31, 212);
+    position: fixed;
+}
